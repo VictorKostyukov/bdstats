@@ -69,7 +69,7 @@
     if (typeof(query) == "undefined" || query == "") {
       query = undefined;
     } else {
-      query = { "$or" : [ { name:query }, { address:query }, { address:"http://"+query}] };
+      query = { "$or" : [ { name:query }, { endpoint:query }, { endpoint:"http://"+query}] };
     }
 
     limit = normalizeIntParam(limit, 20);
@@ -106,7 +106,7 @@
     if (typeof(query) == "undefined" || query == "") {
       query = undefined;
     } else {
-      query = { "$or" : [ { name:query }, { address:query }] };
+      query = { "$or" : [ { name:query }, { endpoint:query }, { endpoint:"http://"+query}] };
     }
 
     var waterfall = require("async-waterfall");

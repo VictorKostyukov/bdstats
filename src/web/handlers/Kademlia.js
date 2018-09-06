@@ -44,8 +44,8 @@
         name : uuids[uuidIdx],
         type : "storage",
         totalSize : sizes[uuidIdx],
-        reservedSize : Math.floor(Math.random() * 1000 * sizeGB) % sizes[uuidIdx],
-        address : ips[uuidIdx]
+        availableSize : Math.floor(Math.random() * 1000 * sizeGB) % sizes[uuidIdx],
+        endpoint : ips[uuidIdx]
       });
 
       ++uuidIdx;

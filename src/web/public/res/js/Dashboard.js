@@ -169,7 +169,7 @@ Dashboard.prototype.Render = function() {
 Dashboard.prototype.__RenderCurrent = function() {
   var used = "";
   var total = "";
-  if (this.stats) {
+  if (this.stats && this.stats.length > 0) {
     var data = this.stats[0];
     if (this.stats.length > 1) {
       // Use the second latest data if possible because the latest data may not contain a full day yet
@@ -190,7 +190,7 @@ Dashboard.prototype.__RenderHosts = function() {
     for (let idx = 0; idx < this.hosts.length; ++idx) {
       html += "<tr>";
       html += "<td>" + Utils.HtmlEscape(this.hosts[idx].name) + "</td>";
-      html += "<td>" + Utils.HtmlEscape(this.hosts[idx].address) + "</td>";
+      html += "<td>" + Utils.HtmlEscape(this.hosts[idx].endpoint) + "</td>";
       html += "<td>" + Utils.FormatSize(this.hosts[idx].availableSize) + "</td>";
       html += "<td>" + Utils.FormatSize(this.hosts[idx].totalSize) + "</td>";
       html += "<td>" + new Date(this.hosts[idx].ts * 1000).toLocaleString() + "</td>";
