@@ -23,6 +23,6 @@ registerHandler("/api/stats/Hosts/", "./handlers/Hosts.js");
 // Fake server
 registerHandler("/api/host/Kademlia/", "./handlers/Kademlia.js");
 
-app.listen(7900, function() {
+app.listen(8800, function() {
   console.log("Server started.\n");
 });
