@@ -40,7 +40,7 @@ function prepareCollection(dbo) {
 
 
 function processLog(logs, hosts, log, callback) {
-  if (!log.ts || !log.name || log.type !== "storage") {
+  if (!log.ts || !log.name || (log.type !== "storage" && log.type !== "log:storage") {
     callback();
     return;
   }
