@@ -100,6 +100,16 @@ Dashboard.prototype.Init = function() {
   $("#data-search-btn").click(function() {
     search($("#data-search").val());
   });
+
+  $("#data-search").bind("enterKey", function() {
+    search($("#data-search").val());
+  });
+
+  $("#data-search").keyup(function(e) {
+    if (e.keyCode === 13) {
+      $(this).trigger("enterKey");
+    }
+  });
 };
 
 
