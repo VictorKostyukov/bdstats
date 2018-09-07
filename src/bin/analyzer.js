@@ -48,7 +48,7 @@ function processLog(logs, hosts, log, callback) {
   log.reservedSize = log.totalSize - log.availableSize;
   logs.updateOne({ ts : log.ts, name : log.name }, { "$set" : log }, { upsert : true }, function(err, res) {
     logIfError(err);
-    logs.find({ name : log.name }).sort({ st : -1 }).limit(1).toArray(function(err, res) {
+    logs.find({ name : log.name }).sort({ ts : -1 }).limit(1).toArray(function(err, res) {
       logIfError(err);
       res = res[0];
       if (res.ts <= log.ts) {
