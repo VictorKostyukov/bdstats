@@ -198,7 +198,11 @@ Dashboard.prototype.__RenderHosts = function() {
   var html = "";
   if (this.hosts) {
     for (let idx = 0; idx < this.hosts.length; ++idx) {
-      html += "<tr>";
+      html += "<tr";
+      if (this.hosts[idx].ts < (Date.now() / 1000 - 24 * 60 * 60)) {
+        html += ' class="text-muted"';
+      }
+      html += ">"
       html += "<td>" + Utils.HtmlEscape(this.hosts[idx].name) + "</td>";
       html += "<td>" + Utils.HtmlEscape(this.hosts[idx].endpoint) + "</td>";
       html += "<td>" + Utils.FormatSize(this.hosts[idx].availableSize) + "</td>";
